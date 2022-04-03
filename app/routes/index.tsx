@@ -42,7 +42,10 @@ export default function Home() {
               feedback is appreciated to help us improve our offering!
             </p>
             <div className="main__rating-container">
-              <div className="main__input-container">
+              <div
+                className="main__input-container"
+                aria-labelledby="error-message"
+              >
                 <input type="radio" value="1" id="rating1" name="rating" />
                 <label htmlFor="rating1">
                   <span>1</span>
@@ -74,7 +77,11 @@ export default function Home() {
               </div>
             </div>
             {state === 'error' && (
-              <p className="main__error" aria-live="assertive">
+              <p
+                className="main__error"
+                aria-live="assertive"
+                id="error-message"
+              >
                 Please select one of above ratings.
               </p>
             )}
