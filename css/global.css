@@ -1,0 +1,271 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: dotted 5px #15deec;
+  outline-offset: 1px;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  background-color: hsl(216deg, 12%, 8%);
+  color: hsl(217deg, 12%, 63%);
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  padding: 0 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 1rem;
+}
+.attribution a {
+  color: hsl(199deg, 66%, 61%);
+}
+
+.main {
+  background-color: #232a34;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 25.75rem;
+}
+@media screen and (min-width: 48em) {
+  .main {
+    padding: 2rem;
+    border-radius: 1.5rem;
+  }
+}
+.main__img-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: hsl(211deg, 20%, 22%);
+  border-radius: 50%;
+  padding: 0.814rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 48em) {
+  .main__img-container {
+    width: 3rem;
+    height: 3rem;
+    padding: 1rem;
+    margin-bottom: 1.875rem;
+  }
+}
+.main__title {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 48em) {
+  .main__title {
+    font-size: 1.75rem;
+  }
+}
+.main__instruction {
+  line-height: 1.375rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 48em) {
+  .main__instruction {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.main__input-container {
+  position: relative;
+}
+.main__input-container:focus-within label:first-of-type {
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+}
+.main__rating-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 48em) {
+  .main__rating-container {
+    margin-bottom: 1.5rem;
+  }
+}
+.main__rating-container input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  height: 100%;
+  width: 1%;
+  margin: 0;
+  opacity: 0.0001;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+.main__rating-container input:checked + label {
+  background-color: hsl(216deg, 12%, 54%);
+  color: hsl(0deg, 0%, 100%);
+}
+.main__rating-container input:not(:checked):hover + label {
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+}
+.main__rating-container label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: hsl(211deg, 20%, 22%);
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+  color: hsl(216deg, 12%, 54%);
+  z-index: 2;
+}
+@media screen and (min-width: 48em) {
+  .main__rating-container label {
+    width: 3.1875rem;
+    height: 3.1875rem;
+  }
+}
+.main__error {
+  margin-bottom: 1rem;
+  color: hsl(25deg, 97%, 53%);
+}
+
+.btn {
+  width: 100%;
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  letter-spacing: 0.11rem;
+  font-family: "Overpass", sans-serif;
+  font-weight: 700;
+  line-height: 1.25rem;
+  border-radius: 1.5rem;
+}
+.btn:hover, .btn:focus {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(25deg, 97%, 53%);
+}
+
+.complete-container {
+  text-align: center;
+  display: grid;
+  grid-row-gap: 1.5rem;
+  row-gap: 1.5rem;
+  padding: 0.625rem 0;
+}
+@media screen and (min-width: 48em) {
+  .complete-container {
+    grid-row-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+.complete__rating {
+  color: hsl(25deg, 97%, 53%);
+  background-color: hsl(211deg, 20%, 22%);
+  font-weight: 400;
+  font-size: 0.875rem;
+  padding: 0.3125rem 0.75rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+@media screen and (min-width: 48em) {
+  .complete__rating {
+    font-size: 0.9375rem;
+    line-height: 1.5rem;
+    padding: 0.1rem 1.25rem;
+  }
+}
+.complete__img-container {
+  max-width: 9rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 48em) {
+  .complete__img-container {
+    max-width: 10.125rem;
+  }
+}
+.complete__title {
+  font-size: 1.5rem;
+  color: hsl(0deg, 0%, 100%);
+  line-height: 30px;
+}
+@media screen and (min-width: 48em) {
+  .complete__title {
+    font-size: 1.75rem;
+    line-height: 2.1875rem;
+  }
+}
+.complete__description {
+  line-height: 22px;
+}
+@media screen and (min-width: 48em) {
+  .complete__description {
+    line-height: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=global.css.map */
