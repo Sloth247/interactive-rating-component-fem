@@ -3,6 +3,7 @@ import type { ActionFunction } from 'remix';
 // Images
 import IconStar from '../../public/images/icon-star.svg';
 import ThankYouHero from '../../public/images/illustration-thank-you.svg';
+import { useEffect, useRef } from 'react';
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
@@ -12,15 +13,24 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function Home() {
-  let actionData = useActionData();
+  const actionData = useActionData();
   const transition = useTransition();
-  let state: 'idle' | 'success' | 'error' | 'submitting' = transition.submission
-    ? 'submitting'
-    : actionData?.rating
-    ? 'success'
-    : actionData?.rating === null
-    ? 'error'
-    : 'idle';
+  const state: 'idle' | 'success' | 'error' | 'submitting' =
+    transition.submission
+      ? 'submitting'
+      : actionData?.rating
+      ? 'success'
+      : actionData?.rating === null
+      ? 'error'
+      : 'idle';
+
+  const successRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (state === 'success') {
+      successRef.current?.focus();
+    }
+  });
 
   return (
     <>
@@ -100,7 +110,9 @@ export default function Home() {
             <p className="complete__rating">
               You selected {actionData.rating} out of 5
             </p>
-            <h1 className="complete__title">Thank you!</h1>
+            <h1 className="complete__title" ref={successRef} tabIndex={-1}>
+              Thank you!
+            </h1>
             <p className="complete__description">
               We appreciate you taking the time to give a rating. If you ever
               need more support, don&apos;t hesitate to get in touch!
